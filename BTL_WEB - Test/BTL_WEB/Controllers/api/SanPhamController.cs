@@ -53,6 +53,27 @@ namespace BTL_WEB.Controllers
             return status;
         }
 
-
+        [HttpGet]
+        [Route("api/sanpham/deletesanpham/{id}")]
+        public string DeleteSanPham(int id)
+        {
+            var status = "{\"status\":-1, \"sanpham\":" + id + "}";
+            try
+            {
+                Func_SanPham hamsanpham = new Func_SanPham();
+                int?  ss =  hamsanpham.Delete(id);
+                
+                if (ss != null)
+                    status = "{\"status\":1, \"sanpham\":" + id + "}";
+                else status = "{\"status\":-1, \"sanpham\":" + id + "}";
+            }
+            catch (Exception ex)
+            {
+                string er = ex.Message;
+                status = "{\"status\":-1, \"sanpham\":" + id + ", \"error\":"+ er+ "}";
+            }
+            
+            return status;
+        }
     }
 }

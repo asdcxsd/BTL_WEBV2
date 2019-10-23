@@ -70,7 +70,7 @@ $(document).on("click", ".submitsanphamupdate", function () {
         function (data) {
             console.log(data);
             var resual = JSON.parse(data);
-            if (resual.status === 0) {
+            if (resual.status === -1) {
                 alert("Sửa dữ liệu không thành công!!");
             } else {
                 alert("Sửa dữ liệu thành công!!");
@@ -87,11 +87,31 @@ $(document).on("click", ".submitsanphamupdate", function () {
 $(function () {
     //alert xoa
  
-     $(".delete-product").click(function(){
-    if (!confirm("Bạn có chắc chắn xóa sản phẩm!")){
-      return false;
-    }
-  });
+    $(".deleteproduct").click(function () {
+        if (!confirm("Bạn có chắc chắn xóa sản phẩm!")) {
+
+            return false;
+        }
+        var idsp = this.id;
+
+
+        $.ajax({
+            url: "/api/sanpham/deletesanpham/" + idsp.toString(),
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                var resual = JSON.parse(data);
+                if (resual.status === -1) {
+                    alert("Xóa dữ liệu không thành công!!");
+                } else {
+                    alert("Xóa dữ liệu thành công!!");
+    
+
+                }
+            }
+        });
+
+    });
 
     // tooltip demo
     $('.tooltip-demo').tooltip({
