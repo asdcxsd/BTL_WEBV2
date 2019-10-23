@@ -1,0 +1,150 @@
+﻿@using BTL_WEB.Models.Functions;
+@using BTL_WEB.Models.Entities;
+@{
+    ViewBag.Title = "Home Page";
+    int i = 0;
+    Func_SanPham sp = new Func_SanPham();
+}
+
+
+@model List<tbl_sanpham>
+
+    <!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+    -->
+    <!DOCTYPE HTML>
+    <html>
+    <head>
+        <title>Mobilestore Website Template | Home :: W3layouts</title>
+        <link href="/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <meta name="keywords" content="Mobilestore iphone web template, Android web template, Smartphone web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+        <link href='//fonts.googleapis.com/css?family=Londrina+Solid|Coda+Caption:800|Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/Content/css/responsiveslides.css">
+        <script src="/Content/js/jquery.min.js"></script>
+        <script src="/Content/js/responsiveslides.min.js"></script>
+        <script>
+            // You can also use "$(window).load(function() {"
+            $(function () {
+
+                // Slideshow 1
+                $("#slider1").responsiveSlides({
+                    maxwidth: 1600,
+                    speed: 10000
+                });
+            });
+        </script>
+    </head>
+    <body>
+
+        <!--start-image-slider---->
+        <div class="wrap">
+            <div id="slider">
+                <!--slider-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#slider-carousel" data-slide-to="1"></li>
+                                    <li data-target="#slider-carousel" data-slide-to="2"></li>
+                                    <li data-target="#slider-carousel" data-slide-to="3"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <div class="col-sm-12">
+                                            <a href="#">
+                                                <img src="~/Content/imgs_slider/slider1.jpg" class="girl img-responsive" alt="" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="col-sm-12">
+                                            <a href="#">
+                                                <img src="~/Content/imgs_slider/slider2.jpg" class="girl img-responsive" alt="" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="col-sm-12">
+                                            <a href="#">
+                                                <img src="~/Content/imgs_slider/slider3.jpg" class="girl img-responsive" alt="" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="col-sm-12">
+                                            <a href="#">
+                                                <img src="~/Content/imgs_slider/slider4.jpg" class="girl img-responsive" alt="" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                                <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/slider-->
+            <!--End-image-slider---->
+        </div>
+        <div class="clear"> </div>
+        <div class="wrap">
+            <div class="content">
+                <div class="top-3-grids">
+                    <div class="section group">
+                        <div class="grid_1_of_3 images_1_of_3">
+                            <a href="/Home/Show"><img src="/Content/images/grid-img1.jpg"></a>
+                            <h3>Lorem Ipsum is simply dummy text </h3>
+                        </div>
+                        <div class="grid_1_of_3 images_1_of_3 second">
+                            <a href="/Home/Show"><img src="/Content/images/grid-img2.jpg"></a>
+                            <h3>Lorem Ipsum is simply dummy text </h3>
+                        </div>
+                        <div class="grid_1_of_3 images_1_of_3 theree">
+                            <a href="/Home/Show"><img src="/Content/images/grid-img3.jpg"></a>
+                            <h3>Lorem Ipsum is simply dummy text </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-grids">
+                    <h4>Deals of the day</h4>
+                    <div class="section group">
+                        @foreach (tbl_sanpham it in Model)
+                        {
+                            <div class="grid_1_of_4 images_1_of_4">
+                                <a href="/Home/Show?sanpham=@it.id"><img src="/Content/images/@sp.getImg(it.id)[0]" alt="" /></a>
+                                <h2>@it.ten </h2>
+                                <div class="price-details">
+                                    <div class="price-number">
+                                        <p><span class="rupees">@it.gia .VND</span></p>
+                                    </div>
+                                    <div class="add-cart">
+                                        <h4><a href="/Home/Show">Add to Cart</a></h4>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+
+                            </div>
+                            i++;
+                        }
+                       
+                    </div>
+
+                </div>
+                @Html.Partial("_MyPartial")
+            </div>
+            <div class="clear"> </div>
+        </div>
+
+    </body>
+</html>
