@@ -44,6 +44,36 @@ $(document).on("click", ".editproduct", function () {
 
 });
 
+$(document).on("click", ".showproduct", function () {
+    var idsp = $(this).data('id');
+    $.ajax({
+
+        url: "/api/sanpham/getsanpham/" + idsp.toString(),
+        dataType: "json",
+        success: function (result) {
+            
+
+            var listdata = JSON.parse(result);
+            console.log(listdata);
+            $(".modal-body #show_tensp").html(listdata.ten);
+            $(".modal-body #show_giasp").html(listdata.gia + " VND");
+            $(".modal-body #show_soluongsp").html(listdata.soluong + "Chiếc");
+            $(".modal-body #show_trongluongsp").html(listdata.trongluong + "g");
+            $(".modal-body #show_romsp").html(listdata.ROM);
+            $(".modal-body #show_ramsp").html(listdata.RAM);
+            $(".modal-body #show_thenhosp").html(listdata.thenho);
+            $(".modal-body #show_camerasp").html("Trước: "+listdata.camera_truoc + " mpx, Sau: " +listdata.camera_sau + " mpx");
+            $(".modal-body #show_pinsp").html(listdata.pin + "mAh");
+            $(".modal-body #show_cpusp").html(listdata.CPU);
+            $(".modal-body #show_manhinhsp").html(listdata.manhinh + "Inc");
+            $(".modal-body #show_nhasanxuatsp").html(listdata.id_nsx);
+
+
+        }
+    });
+
+});
+
 // action post data edit sanpham
 $(document).on("click", ".submitsanphamupdate", function () {
 

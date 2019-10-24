@@ -20,5 +20,6 @@ namespace BTL_WEB.Areas.admin.Controllers
         {
             return View();
         }
+
     }
 }
