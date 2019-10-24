@@ -5,9 +5,9 @@
 
     ViewBag.Title = "Show";
     tbl_sanpham sanpham = ViewBag.sanpham;
-    string linkanh = ViewBag.linkanh;
 
     Func_nhasanxuat list_nha_san_xuat = new Func_nhasanxuat();
+    Func_SanPham sp = new Func_SanPham();
 }
 
 
@@ -63,24 +63,82 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="wrap">
         <div class="content">
             <div class="content-grids">
-                <div class="details-page">
-                    <div class="back-links">
-                        <ul>
-                            <li><a href="#">Home</a><img src="/Content/images/arrow.png" alt=""></li>
-                            <li><a href="#">Product</a><img src="/Content/images/arrow.png" alt=""></li>
-                            <li><a href="#">Product-Details</a><img src="/Content/images/arrow.png" alt=""></li>
-                        </ul>
-                    </div>
-                </div>
+                <br />
+                <h2 style="font-size: 1cm;" class="title text-center">Chi tiết sản phẩm</h2>
                 <div class="detalis-image">
                     <div class="flexslider">
-                        <ul class="slides">
+                        @*<ul class="slides">
 
-                            <li data-thumb="@linkanh">
-                                <div class="thumb-image"> <img src="/Content/images/@linkanh" data-imagezoom="true" class="img-responsive" alt="" /> </div>
-                            </li>
+                                <li data-thumb="@sp.getImg(@sanpham.id)[0]">
+                                    <div class="thumb-image"> <img src="/Content/images/@linkanh" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                </li>
 
-                        </ul>
+                            </ul>*@
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <ul class="slides" style="display: block;">
+
+                                    <li data-thumb="@sp.getImg(@sanpham.id)[0]">
+                                        <div class="thumb-image"> <img src="/Content/images/@sp.getImg(@sanpham.id)[0]" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            @*<div class="item">
+                                    <ul class="slides">
+
+                                        <li data-thumb="@sp.getImg(@sanpham.id)[1]">
+                                            <div class="thumb-image"> <img src="/Content/images/@sp.getImg(@sanpham.id)[1]" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="item">
+                                    <ul class="slides">
+
+                                        <li data-thumb="@sp.getImg(@sanpham.id)[2]">
+                                            <div class="thumb-image"> <img src="/Content/images/@sp.getImg(@sanpham.id)[2]" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="item">
+                                    <ul class="slides">
+
+                                        <li data-thumb="@sp.getImg(@sanpham.id)[3]">
+                                            <div class="thumb-image"> <img src="/Content/images/@sp.getImg(@sanpham.id)[3]" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                        </li>
+
+                                    </ul>
+                                </div>*@
+                        </div>
+                        <div id="similar-product" class="carousel slide" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <a href=""><img src="~/Content/images/@sp.getImg(@sanpham.id)[1]" alt="" style="width:100px;display: inline-block"></a>
+                                    <a href=""><img src="~/Content/images/@sp.getImg(@sanpham.id)[2]" alt="" style="width:100px;display: inline-block"></a>
+                                    <a href=""><img src="~/Content/images/@sp.getImg(@sanpham.id)[3]" alt="" style="width:100px;display: inline-block"></a>
+                                </div>
+                                <div class="item">
+                                    <a href=""><img src="~/Content/images/@sp.getImg(@sanpham.id)[1]" alt="" style="width:100px;display: inline-block"></a>
+                                    <a href=""><img src="~/Content/images/@sp.getImg(@sanpham.id)[2]" alt="" style="width:100px;display: inline-block"></a>
+                                    <a href=""><img src="~/Content/images/@sp.getImg(@sanpham.id)[3]" alt="" style="width:100px;display: inline-block"></a>
+                                </div>
+                                <div class="item">
+                                    <a href=""><img src="~/Content/images/@sp.getImg(@sanpham.id)[1]" alt="" style="width:100px;display: inline-block"></a>
+                                    <a href=""><img src="~/Content/images/@sp.getImg(@sanpham.id)[2]" alt="" style="width:100px;display: inline-block"></a>
+                                    <a href=""><img src="~/Content/images/@sp.getImg(@sanpham.id)[3]" alt="" style="width:100px;display: inline-block"></a>
+                                </div>
+                            </div>
+                            <!-- Controls -->
+                            <a class="left item-control" href="#similar-product" data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="right item-control" href="#similar-product" data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="detalis-image-details">
@@ -169,7 +227,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                 </tr>
                                                 <tr>
                                                     <th style="font-weight:bold;">Camera</th>
-                                                    <td>Trước: @sanpham.camera_truoc mpx, Sau: @sanpham.camera_sau</td>
+                                                    <td>Trước: @sanpham.camera_truoc mpx, Sau: @sanpham.camera_sau mpx</td>
                                                 <tr>
                                                     <th style="font-weight:bold;">Màn Hình</th>
                                                     <td>@sanpham.manhinh Inc</td>
