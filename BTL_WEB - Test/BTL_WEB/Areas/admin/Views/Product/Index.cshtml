@@ -54,8 +54,10 @@
                                         mau = "#FF0000";
                                     }
 
-                                    <tr class="odd gradeX" bgcolor="@mau" >
-
+                                    <tr class="odd gradeX" id="idcolor_@sp.id" bgcolor="@mau" >
+                                        @{
+                                            
+                                          }
                                         <td class="center">@stt</td>@{stt++;
                                         }
                                        
@@ -68,9 +70,12 @@
 
                                             <td>
                                                 <div class="container-fluid">
+                                                    @{
+                                                        var id_row = "idcolor_" + (sp.id).ToString();
+                                                    }
                                                     <button style="background-image: url(/Content/assets/img/show.png); height:30px; width:30px; background-repeat: no-repeat, repeat;background-size: cover;" type="button" data-toggle="modal" data-target="#show-product-modal"></button>
                                                     <button style="background-image: url(/Content/assets/img/edit.png); height:30px; width:30px; background-repeat: no-repeat, repeat;background-size: cover;" class="editproduct" type="button" data-toggle="modal" data-id=@sp.id data-target="#edit-product-modal"></button>
-                                                    <button style="background-image: url(/Content/assets/img/delete.png); height:30px; width:30px; background-repeat: no-repeat, repeat;background-size: cover;" class="deleteproduct" id="@sp.id"  type="button"></button>
+                                                    <button style="background-image: url(/Content/assets/img/delete.png); height:30px; width:30px; background-repeat: no-repeat, repeat;background-size: cover;" class="deleteproduct" onclick="delete_product(@id_row, @sp.id);" id="@sp.id"  type="button"></button>
                                                 </div>
                                             </td>
                                   

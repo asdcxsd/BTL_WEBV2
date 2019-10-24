@@ -84,34 +84,36 @@ $(document).on("click", ".submitsanphamupdate", function () {
     );
 
 });
+function delete_product(ele, id) {
+    if (!confirm("Bạn có chắc chắn xóa sản phẩm!")) {
+
+        return false;
+    }
+    var idsp = id;
+
+
+    $.ajax({
+        url: "/api/sanpham/deletesanpham/" + idsp.toString(),
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            var resual = JSON.parse(data);
+            if (resual.status === -1) {
+                alert("Xóa dữ liệu không thành công!!");
+               
+            } else {
+                alert("Xóa dữ liệu thành công!!");
+                if (resual.color === -1) $(ele).css('background-color', "#FF0000");
+                else $(ele).css('background-color', "#80FF00");
+
+            }
+        }
+    });
+
+}
 $(function () {
     //alert xoa
  
-    $(".deleteproduct").click(function () {
-        if (!confirm("Bạn có chắc chắn xóa sản phẩm!")) {
-
-            return false;
-        }
-        var idsp = this.id;
-
-
-        $.ajax({
-            url: "/api/sanpham/deletesanpham/" + idsp.toString(),
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-                var resual = JSON.parse(data);
-                if (resual.status === -1) {
-                    alert("Xóa dữ liệu không thành công!!");
-                } else {
-                    alert("Xóa dữ liệu thành công!!");
-    
-
-                }
-            }
-        });
-
-    });
 
     // tooltip demo
     $('.tooltip-demo').tooltip({

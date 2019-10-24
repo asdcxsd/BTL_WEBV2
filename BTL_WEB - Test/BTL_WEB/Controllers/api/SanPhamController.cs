@@ -61,16 +61,20 @@ namespace BTL_WEB.Controllers
             try
             {
                 Func_SanPham hamsanpham = new Func_SanPham();
-                int?  ss =  hamsanpham.Delete(id);
-                
+                tbl_sanpham data = hamsanpham.FindEntity(id);
+                if (data.tinhtrang != -1)
+                    data.tinhtrang = -1;
+                else data.tinhtrang = 1;
+                int? ss = hamsanpham.Update(data);
+        
                 if (ss != null)
-                    status = "{\"status\":1, \"sanpham\":" + id + "}";
-                else status = "{\"status\":-1, \"sanpham\":" + id + "}";
+                    status = "{\"status\":1, \"sanpham\":" + id + ", \"color\":"+data.tinhtrang+"}";
+                else status = "{\"status\":-1, \"sanpham\":" + id + ", \"color\":1}}";
             }
             catch (Exception ex)
             {
                 string er = ex.Message;
-                status = "{\"status\":-1, \"sanpham\":" + id + ", \"error\":"+ er+ "}";
+                status = "{\"status\":-1, \"sanpham\":" + id + ", \"error\":\""+ er+ "\"}";
             }
             
             return status;
