@@ -286,6 +286,7 @@
     <Content Include="Areas\admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\admin\Views\Product\EditModal.cshtml" />
     <Content Include="Areas\admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\Product\ShowModal.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
