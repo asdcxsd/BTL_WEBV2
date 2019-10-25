@@ -30,8 +30,9 @@
             <!-- Advanced Tables -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Advanced Tables
+                   <button type="button" class="btn btn-success btn-lg" onclick="location.href='Add';"><i class="glyphicon  glyphicon-new-window"></i> Thêm sản phẩm</button>
                 </div>
+
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table class="table table-fit table-bordered table-hover" id="dataTables-example">
@@ -72,7 +73,12 @@
                                             <td id="hienten_@sp.id"> @sp.ten</td>
                                             <td id="hiengia_@sp.id">@sp.gia</td>
                                             <td id="hiensoluong_@sp.id">@sp.soluong</td>
-                                            <td><img src="~/Content/images/@sanpham.getImg(@sp.id)[0]" width="50" height="50"></td>
+                                            @{ 
+                                                var get_link = @sanpham.getImg(@sp.id);
+                                                var link = "";
+                                                if (get_link.Count > 0) link = get_link[0];
+                                            }
+                                            <td><img src="~/Content/images/@link" width="50" height="50"></td>
 
                                             <td>
                                                 <div class="container-fluid">
