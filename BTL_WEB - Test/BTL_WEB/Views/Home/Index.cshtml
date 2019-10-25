@@ -121,8 +121,17 @@
                     <div class="section group">
                         @foreach (tbl_sanpham it in Model)
                         {
+                            if (it.tinhtrang == -1)
+                            {
+                                continue;
+                            }
+                           
+                            var get_link = @sp.getImg(it.id);
+                            var link = "";
+                            if (get_link.Count > 0) link = get_link[0];
+
                             <div class="grid_1_of_4 images_1_of_4">
-                                <a href="/Home/Show?sanpham=@it.id"><img src="/Content/images/@sp.getImg(it.id)[0]" alt="" /></a>
+                                <a href="/Home/Show?sanpham=@it.id"><img src="/Content/images/@link" alt="" /></a>
                                 <h2>@it.ten </h2>
                                 <div class="price-details">
                                     <div class="price-number">

@@ -16,13 +16,23 @@
         </div>
         <!-- end  page header -->
     </div>
+
+    <div>
+        <!-- Modal-->
+        @{
+            Html.RenderPartial("EditModal");
+            Html.RenderPartial("ShowModal");
+        }
+
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <!-- Advanced Tables -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Advanced Tables
+                   <button type="button" class="btn btn-success btn-lg" onclick="location.href='Add';"><i class="glyphicon  glyphicon-new-window"></i> Thêm sản phẩm</button>
                 </div>
+
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table class="table table-fit table-bordered table-hover" id="dataTables-example">
@@ -41,10 +51,7 @@
                             </thead>
 
                             <tbody>
-                                @{
-                                    Html.RenderPartial("EditModal");
-                                }
-
+                              
                                 @{var stt = 1;}
                                 @foreach (tbl_sanpham sp in list)
                                 {
@@ -66,14 +73,19 @@
                                             <td id="hienten_@sp.id"> @sp.ten</td>
                                             <td id="hiengia_@sp.id">@sp.gia</td>
                                             <td id="hiensoluong_@sp.id">@sp.soluong</td>
-                                            <td><img src="~/Content/images/@sanpham.getImg(@sp.id)[0]" width="50" height="50"></td>
+                                            @{ 
+                                                var get_link = @sanpham.getImg(@sp.id);
+                                                var link = "";
+                                                if (get_link.Count > 0) link = get_link[0];
+                                            }
+                                            <td><img src="~/Content/images/@link" width="50" height="50"></td>
 
                                             <td>
                                                 <div class="container-fluid">
                                                     @{
                                                         var id_row = "idcolor_" + (sp.id).ToString();
                                                     }
-                                                    <button style="background-image: url(/Content/assets/img/show.png); height:30px; width:30px; background-repeat: no-repeat, repeat;background-size: cover;" type="button" data-toggle="modal" data-target="#show-product-modal"></button>
+                                                    <button style="background-image: url(/Content/assets/img/show.png); height:30px; width:30px; background-repeat: no-repeat, repeat;background-size: cover;" class="showproduct" type="button" data-toggle="modal" data-id=@sp.id data-target="#show-product-modal"></button>
                                                     <button style="background-image: url(/Content/assets/img/edit.png); height:30px; width:30px; background-repeat: no-repeat, repeat;background-size: cover;" class="editproduct" type="button" data-toggle="modal" data-id=@sp.id data-target="#edit-product-modal"></button>
                                                     <button style="background-image: url(/Content/assets/img/delete.png); height:30px; width:30px; background-repeat: no-repeat, repeat;background-size: cover;" class="deleteproduct" onclick="delete_product(@id_row, @sp.id);" id="@sp.id"  type="button"></button>
                                                 </div>
