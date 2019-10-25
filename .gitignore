@@ -347,3 +347,4 @@ healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+BTL_WEB - Test/BTL_WEB/BTL_WEB.csproj

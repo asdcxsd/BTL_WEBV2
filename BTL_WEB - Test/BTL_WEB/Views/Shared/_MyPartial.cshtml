@@ -1,24 +1,44 @@
-﻿<div class="content-sidebar">
-    <h4>Categories</h4>
+﻿
+@using BTL_WEB.Models.Entities;
+@using BTL_WEB.Models.Functions;
+
+@{
+    ViewBag.Title = "Home Page";
+    Func_DanhMuc dm = new Func_DanhMuc();
+    List<tbl_danhmuc> listDM = new Func_DanhMuc().DS_DanhMuc.ToList();
+    int n = new Func_DanhMuc().DS_DanhMuc.Count();
+
+    List<tbl_nhasanxuat> listNSX = new Func_nhasanxuat().DS_NhaSanXuat.ToList();
+    int m = new Func_nhasanxuat().DS_NhaSanXuat.Count();
+}
+<div class="content-sidebar">
+    <h2>Danh Mục</h2>
     <ul>
-        <li><a href="#">Accord Mobiles</a></li>
-        <li><a href="#">Ace Mobile</a></li>
-        <li><a href="#">Acer Mobile</a></li>
-        <li><a href="#">Airfone</a></li>
-        <li><a href="#">Apple</a></li>
-        <li><a href="#">Blackberry</a></li>
-        <li><a href="#">Byond Tech</a></li>
-        <li><a href="#">Celkon Mobiles</a></li>
-        <li><a href="#">Dell Mobile Phones </a></li>
-        <li><a href="#">Fly Mobile</a></li>
-        <li><a href="#">Fujezone Mobiles </a></li>
-        <li><a href="#">HTC</a></li>
-        <li><a href="#">LG Mobiles</a></li>
-        <li><a href="#">Longtel Mobile</a></li>
-        <li><a href="#">Maxx</a></li>
-        <li><a href="#">Micromax Mobiles </a></li>
-        <li><a href="#">Samsung Mobiles</a></li>
-        <li><a href="#">Sony Ericsson Mobiles</a></li>
-        <li><a href="#">Wynncom Mobiles</a></li>
+        @for (int i = 0; i < n; i++)
+        {
+            <li><a href="#">@listDM[i].ten</a></li>
+        }
     </ul>
+    <br />
+    <h2>Thương Hiệu</h2>
+    <ul class="nav nav-pills nav-stacked">
+        @for (int i = 0; i < m; i++)
+        {
+            <li><a href="#">@listNSX[i].ten</a></li>
+        }
+    </ul>
+    <br />
+    <div class="price-range">
+        <!--price-range-->
+        <h2>Price Range</h2>
+        <div class="well text-center">
+            <div class="slider slider-horizontal" style="width: 187px;"><div class="slider-track"><div class="slider-selection" style="left: 41.6667%; width: 33.3333%;"></div><div class="slider-handle round left-round" style="left: 41.6667%;"></div><div class="slider-handle round" style="left: 75%;"></div></div><div class="tooltip top" style="top: -30px; left: 76.0833px;"><div class="tooltip-arrow"></div><div class="tooltip-inner">250 : 450</div></div><input class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" style="" type="text"></div><br>
+            <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+        </div>
+    </div><!--/price-range-->
+    <div class="shipping text-center">
+        <!--shipping-->
+        <img src="~/Resources/imgs/shipping.jpg" alt="">
+    </div><!--/shipping-->
 </div>
+

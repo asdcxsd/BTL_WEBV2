@@ -180,6 +180,7 @@
     <Compile Include="Models\Entities\tbl_thongtincanhan.cs" />
     <Compile Include="Models\Entities\tbl_tinhtrangdonhang.cs" />
     <Compile Include="Models\Entities\tbl_xulydon.cs" />
+    <Compile Include="Models\Functions\Func_Anh.cs" />
     <Compile Include="Models\Functions\Func_DanhMuc.cs" />
     <Compile Include="Models\Functions\Func_SanPham.cs" />
     <Compile Include="Models\Functions\Func_nhasanxuat.cs" />

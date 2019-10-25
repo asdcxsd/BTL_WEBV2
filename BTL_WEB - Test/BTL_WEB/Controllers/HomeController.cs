@@ -110,6 +110,12 @@ namespace BTL_WEB.Controllers
         }
         public ActionResult _MyPartial()
         {
+            List<tbl_danhmuc> listDM = new Func_DanhMuc().DS_DanhMuc.ToList();
+            List<tbl_nhasanxuat> listNSX = new Func_nhasanxuat().DS_NhaSanXuat.ToList();
+
+            ViewBag.DM = listDM;
+            ViewBag.NSX = listNSX;
+
             return PartialView();
         }
     }
