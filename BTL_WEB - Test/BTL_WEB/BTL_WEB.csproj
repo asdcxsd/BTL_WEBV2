@@ -248,6 +248,7 @@
     <Content Include="Content\images\btn-details.png" />
     <Content Include="Content\images\cal.png" />
     <Content Include="Content\images\cal1.png" />
+    <Content Include="Content\images\download.jpg" />
     <Content Include="Content\images\facebook.png" />
     <Content Include="Content\images\grid-img1.jpg" />
     <Content Include="Content\images\grid-img2.jpg" />
