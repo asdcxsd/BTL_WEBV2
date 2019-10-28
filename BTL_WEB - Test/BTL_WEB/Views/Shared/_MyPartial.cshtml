@@ -16,7 +16,7 @@
     <ul>
         @for (int i = 0; i < n; i++)
         {
-            <li><a href="#">@listDM[i].ten</a></li>
+            <li><a href="/Home/DanhMuc?danhmuc=@listDM[i].id">@listDM[i].ten</a></li>
         }
     </ul>
     <br />
@@ -24,7 +24,7 @@
     <ul class="nav nav-pills nav-stacked">
         @for (int i = 0; i < m; i++)
         {
-            <li><a href="#">@listNSX[i].ten</a></li>
+            <li><a href="/Home/ThuongHieu?thuonghieu=@listNSX[i].id">@listNSX[i].ten</a></li>
         }
     </ul>
     <br />

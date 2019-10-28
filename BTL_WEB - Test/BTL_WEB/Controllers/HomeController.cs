@@ -104,6 +104,24 @@ namespace BTL_WEB.Controllers
 
             return View("Index",model);
         }
+        public ActionResult ThuongHieu()
+        {
+            string txtString = Request.QueryString["thuonghieu"];
+            var model = new Func_SanPham().DS_SanPham.Where(x => x.id_nsx.ToString().Contains(txtString)).ToList();
+
+
+            ViewBag.ThuongHieu = model;
+
+            return View("Index", model);
+        }
+        public ActionResult DanhMuc()
+        {
+            string txtString = Request.QueryString["danhmuc"];
+            var model = new Func_SanPham().DS_SanPham.Where(x => x.id_dm.ToString().Contains(txtString)).ToList();
+            ViewBag.DanhMuc = model;
+
+            return View("Index", model);
+        }
         public ActionResult Error()
         {
             return View();
