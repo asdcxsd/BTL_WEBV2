@@ -103,6 +103,7 @@ body {
     margin: 0 auto;
 }
 
+
 .search-bar, .header-top-nav {
     float: right;
 }
@@ -1915,4 +1916,25 @@ body {
         font-size: 0.7125em;
         padding: 6px 1px;
     }
+}
+
+
+.navbar .brand, .navbar .nav > li > a {
+    /*color: #D64848;*/
+    color:#fff;
+
+}
+
+    .navbar .brand, .navbar .nav > li > a:hover {
+        /*color: #F56E6E;*/
+        color: #000000;
+    }
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #977EBD;
+    color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #977EBD;
+    color: #FFFFFF;
 }
