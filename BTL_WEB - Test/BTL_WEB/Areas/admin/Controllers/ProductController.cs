@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using BTL_WEB.Models.Entities;
 using BTL_WEB.Models.Functions;
+using System.IO;
+
 namespace BTL_WEB.Areas.admin.Controllers
 {
     public class ProductController : Controller
@@ -51,8 +53,33 @@ namespace BTL_WEB.Areas.admin.Controllers
                 data.tinhtrang = 1;
                 data.id_nsx = Int32.Parse(Request.QueryString["nhasanxuatsp"]);
                 data.bluetooth = Int32.Parse(Request.QueryString["bluetoothsp"]);
+                HttpPostedFileBase fileUpload = Request.Files["imgsp"];
+                
                 Func_SanPham tp = new Func_SanPham();
                 res = tp.Insert(data);
+                if (res != null)
+                {
+                    int id = (int)res;
+
+                    if (fileUpload != null)
+                    {
+                        var fileName = Path.GetExtension(fileUpload.FileName);
+
+
+                        var path = res.ToString() +"." +  Path.Combine(Server.MapPath("~/Content/images"), fileName);
+                        // file is uploaded
+                        if (System.IO.File.Exists(path))
+                        {
+                            ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                        }
+                        else
+                        {
+                            fileUpload.SaveAs(path);
+                        }
+
+                        
+                    }
+                }
             }
             catch
             {
