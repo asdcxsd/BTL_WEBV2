@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using BTL_WEB.Models.Entities;
 using BTL_WEB.Models.Functions;
 using System.IO;
-
 namespace BTL_WEB.Areas.admin.Controllers
 {
     public class ProductController : Controller
@@ -28,31 +27,35 @@ namespace BTL_WEB.Areas.admin.Controllers
             
             return View();
         }
+        public static String GetTimestamp(DateTime value)
+        {
+            return value.ToString("yyyyMMddHHmmssffff");
+        }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult AddProduct()
         {
             int? res = null;
             tbl_sanpham data = new tbl_sanpham();
             try
             {
-                data.ten = Request.QueryString["tensp"];
-                data.thenho = Request.QueryString["thenhosp"];
-                data.gia = Int32.Parse(Request.QueryString["giasp"]);
-                data.trongluong = Request.QueryString["trongluongsp"];
-                data.soluong = Int32.Parse(Request.QueryString["soluongsp"]);
+                data.ten = Request["tensp"];
+                data.thenho = Request["thenhosp"];
+                data.gia = Int32.Parse(Request["giasp"]);
+                data.trongluong = Request["trongluongsp"];
+                data.soluong = Int32.Parse(Request["soluongsp"]);
 
-                data.ROM = Request.QueryString["romsp"];
-                data.RAM = Request.QueryString["ramsp"];
-                data.baohanh = Request.QueryString["thoigianbaohanhsp"];
-                data.camera_sau = Request.QueryString["camerasausp"];
-                data.camera_truoc = Request.QueryString["cameratruocsp"];
-                data.CPU = Request.QueryString["cpusp"];
-                data.manhinh = Request.QueryString["manhinhsp"];
-                data.pin = Int32.Parse(Request.QueryString["pinsp"]);
+                data.ROM = Request["romsp"];
+                data.RAM = Request["ramsp"];
+                data.baohanh = Request["thoigianbaohanhsp"];
+                data.camera_sau = Request["camerasausp"];
+                data.camera_truoc = Request["cameratruocsp"];
+                data.CPU = Request["cpusp"];
+                data.manhinh = Request["manhinhsp"];
+                data.pin = Int32.Parse(Request["pinsp"]);
                 data.tinhtrang = 1;
-                data.id_nsx = Int32.Parse(Request.QueryString["nhasanxuatsp"]);
-                data.bluetooth = Int32.Parse(Request.QueryString["bluetoothsp"]);
+                data.id_nsx = Int32.Parse(Request["nhasanxuatsp"]);
+                data.bluetooth = Int32.Parse(Request["bluetoothsp"]);
                 HttpPostedFileBase fileUpload = Request.Files["imgsp"];
                 
                 Func_SanPham tp = new Func_SanPham();
@@ -63,10 +66,11 @@ namespace BTL_WEB.Areas.admin.Controllers
 
                     if (fileUpload != null)
                     {
-                        var fileName = Path.GetExtension(fileUpload.FileName);
+                        String timeStamp = GetTimestamp(DateTime.Now);
+                        var fileName = timeStamp + Path.GetExtension(fileUpload.FileName);
 
-
-                        var path = res.ToString() +"." +  Path.Combine(Server.MapPath("~/Content/images"), fileName);
+                        
+                        var path =   Path.Combine(Server.MapPath("~/Content/images"), fileName);
                         // file is uploaded
                         if (System.IO.File.Exists(path))
                         {
@@ -74,8 +78,19 @@ namespace BTL_WEB.Areas.admin.Controllers
                         }
                         else
                         {
-                            fileUpload.SaveAs(path);
+                            Func_Anh installanh = new Func_Anh();
+                            tbl_anh anh = new tbl_anh();
+                            anh.duongdan = fileName;
+                            anh.id_sp = id;
+
+                            int? x = installanh.Insert(anh);
+                            if (x == null)
+                            {
+                                res = -1;
+                            }
+                            else fileUpload.SaveAs(path);
                         }
+                        
 
                         
                     }

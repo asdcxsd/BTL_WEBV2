@@ -95,6 +95,7 @@ $(document).on("click", ".submitsanphamupdate", function () {
     datalist["baohanh"] = $(".modal-body #thoigianbaohanhsp").val();
     datalist["tinhtrang"] = $(".modal-body #tinhtrang").val();
     datalist["id_nsx"] = $(".modal-body #nhasanxuatsp").val();
+    datalist["imgsp"] = $(".modal-body #imgsp").val();
 
     $.post("/api/sanpham/updatesanpham/", { "": JSON.stringify(datalist)},
         function (data) {
