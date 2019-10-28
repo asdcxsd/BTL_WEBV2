@@ -273,6 +273,7 @@
     <Content Include="Content\images\remove.png" />
     <Content Include="Content\images\rss.png" />
     <Content Include="Content\images\sepHor.png" />
+    <Content Include="Content\images\shopping-circle-green-512.png" />
     <Content Include="Content\images\twitter.png" />
     <Content Include="Content\js\imagezoom.js" />
     <Content Include="Content\js\jquery.flexslider.js" />
