@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+@model BTL_WEB.Areas.admin.Models.LoginModel
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <title>Account</title>
+    <link rel="stylesheet" href="/Content/css/login.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play">
+</head>
+
+<body>
+    <div class="signin">
+        @*<form>*@
+        @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+        {
+            
+            @Html.AntiForgeryToken();
+            @Html.ValidationSummary(false, "", "error");
+            <h2 style="color: white">Sign in</h2>
+            @Html.TextBoxFor(model => model.tentaikhoan, new { @type = "text", @name = "Username", @placeholder = "Username" })
+            @Html.TextBoxFor(model => model.matkhau, new { @type = "password", @name = "Password", @placeholder = "Password" })
+            @*<input type="text" name="Username" placeholder="Username">
+        <input type="password" name="Password" placeholder="Password"><br><br>*@
+            <br />
+            <br />
+            <a>
+                <button type="submit" class="btn btn-lg btn-success btn-block">Log In</button>
+            </a><br><br>
+            <div class="container">
+                <a href="#" style="margin-right: 0px; font-size: 13px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"><div style="text-align: right;">Forget password</div></a>
+            </div><br><br><br>
+            <p>Don't have account?</p><a>&nbsp;Sign up</a>
+
+           
+        }
+
+        @*</form>*@
+    </div>
+</body>
+</html>

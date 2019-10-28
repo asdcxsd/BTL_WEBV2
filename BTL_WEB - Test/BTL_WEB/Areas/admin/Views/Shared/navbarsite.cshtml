@@ -3,6 +3,9 @@
     var nameselect = ViewBag.select;
     
 }
+
+@model BTL_WEB.Areas.admin.Controllers.LoginController
+
 <nav class="navbar-default navbar-static-side" role="navigation">
     <!-- sidebar-collapse -->
     <div class="sidebar-collapse">
@@ -15,8 +18,12 @@
                         <img src="/Content/assets/img/user.jpg" alt="">
                     </div>
                     <div class="user-info">
-                        <div>Jonny <strong>Deen</strong></div>
+                        <div>
+                            @Session["username"]
+                        </div>
+                        @*<div>Jonny <strong>Deen</strong></div>*@
                         <div class="user-text-online">
+
                             <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                         </div>
                     </div>
