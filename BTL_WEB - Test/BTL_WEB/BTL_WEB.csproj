@@ -252,6 +252,10 @@
     <Content Include="Content\images\grid-img1.jpg" />
     <Content Include="Content\images\grid-img2.jpg" />
     <Content Include="Content\images\grid-img3.jpg" />
+    <Content Include="Content\images\icons8_search.ico" />
+    <Content Include="Content\images\icons8_search_16.png" />
+    <Content Include="Content\images\icons8_search_32.png" />
+    <Content Include="Content\images\icons8_shopping_cart_32.png" />
     <Content Include="Content\images\link-compare.png" />
     <Content Include="Content\images\link-wishlist.png" />
     <Content Include="Content\images\logo-Apple.jpg" />
