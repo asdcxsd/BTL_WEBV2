@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BTL_WEB.Models.Entities;
 using BTL_WEB.Models.Functions;
+using PagedList;
 
 namespace BTL_WEB.Controllers
 {
@@ -12,17 +13,29 @@ namespace BTL_WEB.Controllers
     {
         private MyDBContext context = new MyDBContext();
         private Func_SanPham sp = new Func_SanPham();
-        public Dictionary<int, string> getList_imange()
+        public Dictionary<int, string> getList_imange(int pageNumber, int pageSize)
         {
             var list = new Func_SanPham().DS_SanPham.ToList();
             int n = new Func_SanPham().DS_SanPham.Count();
 
+            //Dictionary<int, string> listImg = new Dictionary<int, string>();
+            //for (int i = 0; i < n; i++)
+            //{
+            //    try
+            //    {
+            //        listImg.Add(i, sp.getImg(list[i].id)[0]);//add ảnh lấy được vào dict
+            //    }
+            //    catch (Exception)
+            //    {
+
+            //    }
+            //}
             Dictionary<int, string> listImg = new Dictionary<int, string>();
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < pageSize; i++)
             {
                 try
                 {
-                    listImg.Add(i, sp.getImg(list[i].id)[0]);//add ảnh lấy được vào dict
+                    listImg.Add(i, sp.getImg(list[(pageNumber - 1) * pageSize + i].id)[0]);//add ảnh lấy được vào dict
                 }
                 catch (Exception)
                 {
@@ -31,14 +44,16 @@ namespace BTL_WEB.Controllers
             }
             return listImg;
         }
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             var list = new Func_SanPham().DS_SanPham.ToList();
-            ViewBag.SP = list;
-     
-            ViewBag.Anh = (Dictionary<int, string>) getList_imange();
+            int pageNumber = (page ?? 1);
+            int pageSize = 8;
 
-            return View(list);
+            Dictionary<int, string> listImg = (Dictionary<int, string>)getList_imange(pageNumber, pageSize);
+            ViewBag.Anh = listImg;
+            //return View(listImg);
+            return View(list.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult About()
@@ -95,32 +110,38 @@ namespace BTL_WEB.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Search(string txtString)
+        public ActionResult Search(string txtString, int? page)
         {
+            int pageNumber = (page ?? 1);
+            int pageSize = 8;
             var model = new Func_SanPham().DS_SanPham.Where(x => x.ten.Contains(txtString)).ToList();
 
            
             ViewBag.Search = model;
 
-            return View("Index",model);
+            return View("Index",model.ToPagedList(pageNumber, pageSize));
         }
-        public ActionResult ThuongHieu()
+        public ActionResult ThuongHieu(int? page)
         {
+            int pageNumber = (page ?? 1);
+            int pageSize = 8;
             string txtString = Request.QueryString["thuonghieu"];
             var model = new Func_SanPham().DS_SanPham.Where(x => x.id_nsx.ToString().Contains(txtString)).ToList();
 
-
             ViewBag.ThuongHieu = model;
 
-            return View("Index", model);
+            return View("Index", model.ToPagedList(pageNumber, pageSize));
         }
-        public ActionResult DanhMuc()
+        public ActionResult DanhMuc(int? page)
         {
+            int pageNumber = (page ?? 1);
+            int pageSize = 8;
             string txtString = Request.QueryString["danhmuc"];
             var model = new Func_SanPham().DS_SanPham.Where(x => x.id_dm.ToString().Contains(txtString)).ToList();
+
             ViewBag.DanhMuc = model;
 
-            return View("Index", model);
+            return View("Index", model.ToPagedList(pageNumber, pageSize));
         }
         public ActionResult Error()
         {
