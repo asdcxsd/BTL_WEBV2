@@ -239,6 +239,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\flexslider.css" />
     <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\price-range.css" />
     <Content Include="Content\css\responsiveslides.css" />
     <Content Include="Content\css\signup.css" />
     <Content Include="Content\css\style.css" />
