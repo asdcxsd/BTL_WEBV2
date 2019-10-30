@@ -15,8 +15,8 @@ namespace BTL_WEB.Models.Entities
             tbl_xulydon = new HashSet<tbl_xulydon>();
         }
 
-        [StringLength(12)]
-        public string id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int id { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? ngaylap { get; set; }

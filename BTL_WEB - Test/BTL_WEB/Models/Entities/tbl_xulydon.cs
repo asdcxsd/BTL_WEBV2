@@ -8,12 +8,10 @@ namespace BTL_WEB.Models.Entities
 
     public partial class tbl_xulydon
     {
-        [StringLength(20)]
-        public string id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int id { get; set; }
 
-        [Required]
-        [StringLength(12)]
-        public string id_don { get; set; }
+        public int id_don { get; set; }
 
         [StringLength(30)]
         public string tinhtrang { get; set; }

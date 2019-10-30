@@ -8,12 +8,10 @@ namespace BTL_WEB.Models.Entities
 
     public partial class tbl_chitietdonhang
     {
-        [StringLength(20)]
-        public string id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int id { get; set; }
 
-        [Required]
-        [StringLength(12)]
-        public string id_don { get; set; }
+        public int id_don { get; set; }
 
         public int id_sp { get; set; }
 
@@ -21,8 +19,7 @@ namespace BTL_WEB.Models.Entities
 
         public int? soluong { get; set; }
 
-        [StringLength(20)]
-        public string id_tinhtrang { get; set; }
+        public int? id_tinhtrang { get; set; }
 
         public DateTime? thoigian { get; set; }
 
