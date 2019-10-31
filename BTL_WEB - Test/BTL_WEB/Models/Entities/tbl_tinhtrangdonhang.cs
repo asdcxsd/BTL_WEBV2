@@ -14,8 +14,8 @@ namespace BTL_WEB.Models.Entities
             tbl_chitietdonhang = new HashSet<tbl_chitietdonhang>();
         }
 
-        [StringLength(20)]
-        public string id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int id { get; set; }
 
         [StringLength(20)]
         public string ten { get; set; }

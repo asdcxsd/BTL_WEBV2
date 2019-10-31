@@ -79,5 +79,22 @@ namespace BTL_WEB.Controllers
             
             return status;
         }
+
+        [HttpPost]
+        [Route("api/sanpham/selectsanpham/")]
+        public string selectsanpham([FromBody] string data)
+        {
+            dynamic stuff = JsonConvert.DeserializeObject(data);
+            var idsp = stuff.idsp;
+            var iduser = stuff.iduser;
+            var soluong = stuff.idsoluong;
+            Func_ChiTietDonHang donhang = new Func_ChiTietDonHang();
+            int? res   =  donhang.AddSanPhamGioHang(idsp, iduser, soluong);
+            if (res != null)
+            {
+                return  "{\"status\":1, \"donhang\":" + res + "}";
+            }
+            else return "{\"status\":-1 }";
+        }
     }
 }
