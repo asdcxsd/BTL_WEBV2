@@ -13,13 +13,13 @@ namespace BTL_WEB.Controllers
         // GET: GioHang
         public ActionResult Index()
         {
-            if (Session["usernane"] == null)
+            if (Session["userLogin"] == null)
             {
                 return Redirect("~/admin/Login/Index");
             }
             Func_TaiKhoan  getid = new Func_TaiKhoan();
-            UserLogin user = (UserLogin)Session["username"];
-            tbl_taikhoan tk = getid.getTaiKhoan(user.tentaikhoan);
+            //UserLogin user = (UserLogin)Session["userLogin"];
+            tbl_taikhoan tk = getid.getTaiKhoan((string)Session["userLogin"]);
             ViewBag.iduser = tk.id;
             return View();
         }
