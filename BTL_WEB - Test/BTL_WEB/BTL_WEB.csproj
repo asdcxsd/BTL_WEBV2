@@ -175,6 +175,10 @@
     <Compile Include="Areas\admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\admin\Models\LoginModel.cs" />
     <Compile Include="Code\CodeConstants.cs" />
+
+    <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\UserLoginController.cs" />
+
     <Compile Include="Models\Entities\MyDBContext.cs" />
     <Compile Include="Models\Entities\tbl_anh.cs" />
     <Compile Include="Models\Entities\tbl_chitietdonhang.cs" />
@@ -238,12 +242,14 @@
     <Content Include="Content\assets\scripts\siminta.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\css.css" />
     <Content Include="Content\css\flexslider.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\responsiveslides.css" />
     <Content Include="Content\css\signup.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\style1.css" />
+    <Content Include="Content\css\stylegiohang.css" />
     <Content Include="Content\images\012.png" />
     <Content Include="Content\images\1.png" />
     <Content Include="Content\images\2.png" />
@@ -348,6 +354,10 @@
     <Content Include="Views\Shared\_MyPartial.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+
+    <Content Include="Views\UserLogin\Index.cshtml" />
+    <Content Include="Views\GioHang\Index.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
