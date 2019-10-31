@@ -8,7 +8,7 @@ namespace BTL_WEB.Models.Entities
     public partial class MyDBContext : DbContext
     {
         public MyDBContext()
-            : base("name=MyDBContext")
+            : base("name=MyDBContext1")
         {
         }
 
@@ -31,14 +31,6 @@ namespace BTL_WEB.Models.Entities
                 .Property(e => e.duongdan)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<tbl_chitietdonhang>()
-                .Property(e => e.id)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tbl_chitietdonhang>()
-                .Property(e => e.id_don)
-                .IsUnicode(false);
-
             modelBuilder.Entity<tbl_danhmuc>()
                 .Property(e => e.ten)
                 .IsFixedLength();
@@ -47,10 +39,6 @@ namespace BTL_WEB.Models.Entities
                 .HasMany(e => e.tbl_sanpham)
                 .WithOptional(e => e.tbl_danhmuc)
                 .HasForeignKey(e => e.id_dm);
-
-            modelBuilder.Entity<tbl_dondathang>()
-                .Property(e => e.id)
-                .IsUnicode(false);
 
             modelBuilder.Entity<tbl_dondathang>()
                 .Property(e => e.tonggia)
@@ -161,10 +149,6 @@ namespace BTL_WEB.Models.Entities
                 .HasMany(e => e.tbl_chitietdonhang)
                 .WithOptional(e => e.tbl_tinhtrangdonhang)
                 .HasForeignKey(e => e.id_tinhtrang);
-
-            modelBuilder.Entity<tbl_xulydon>()
-                .Property(e => e.id_don)
-                .IsUnicode(false);
         }
     }
 }

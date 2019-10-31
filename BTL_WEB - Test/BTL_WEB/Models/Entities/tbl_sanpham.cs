@@ -1,16 +1,14 @@
 namespace BTL_WEB.Models.Entities
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-    [JsonObject(IsReference = true)]
+
     public partial class tbl_sanpham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-
         public tbl_sanpham()
         {
             tbl_anh = new HashSet<tbl_anh>();
@@ -18,10 +16,7 @@ namespace BTL_WEB.Models.Entities
         }
 
         public int id { get; set; }
-        //public string get_link()
-        //{
-        //    LayAnh
-        //}
+
         public int? id_dm { get; set; }
 
         [StringLength(150)]

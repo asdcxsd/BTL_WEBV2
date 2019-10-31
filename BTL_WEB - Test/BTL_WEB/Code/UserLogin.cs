@@ -10,5 +10,7 @@ namespace BTL_WEB.Code
     {
         public long id { set; get; }
         public string tentaikhoan { set; get; }
+       
+        public int id_q { set; get;}
     }
 }

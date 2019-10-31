@@ -64,12 +64,12 @@ GO
 SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[tbl_chitietdonhang](
-	[id] [varchar](20) NOT NULL,
-	[id_don] [varchar](12) NOT NULL,
+	[id] [int] NOT NULL,
+	[id_don] [int] NOT NULL,
 	[id_sp] [int] NOT NULL,
 	[id_tk] [int] NOT NULL,
 	[soluong] [int] NULL,
-	[id_tinhtrang] [nvarchar](20) NULL,
+	[id_tinhtrang] [int] NULL,
 	[thoigian] [datetime] NULL,
  CONSTRAINT [PK_tbl_chitietdonhang] PRIMARY KEY CLUSTERED 
 (
@@ -103,7 +103,7 @@ GO
 SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[tbl_dondathang](
-	[id] [varchar](12) NOT NULL,
+	[id] [int] NOT NULL,
 	[ngaylap] [date] NULL,
 	[tonggia] [decimal](18, 0) NULL,
 	[diachi] [nvarchar](50) NULL,
@@ -259,7 +259,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[tbl_tinhtrangdonhang](
-	[id] [nvarchar](20) NOT NULL,
+	[id] [int] NOT NULL,
 	[ten] [nvarchar](20) NULL,
  CONSTRAINT [PK_tbl_tinhtrangdonhang] PRIMARY KEY CLUSTERED 
 (
@@ -276,8 +276,8 @@ GO
 SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[tbl_xulydon](
-	[id] [nvarchar](20) NOT NULL,
-	[id_don] [varchar](12) NOT NULL,
+	[id] [int] NOT NULL,
+	[id_don] [int] NOT NULL,
 	[tinhtrang] [nvarchar](30) NULL,
 	[thoigian] [datetime] NULL,
  CONSTRAINT [PK_tbl_xulydon] PRIMARY KEY CLUSTERED 

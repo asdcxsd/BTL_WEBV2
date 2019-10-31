@@ -374,12 +374,15 @@ body {
 .grid_1_of_4 {
     display: block;
     float: left;
-    margin: 1% 0 1% 1%;
+    /*margin: 1% 0 1% 1%;*/
+    margin-left: 0%;
+    margin-right: 1%;
+    margin-top: 1%;
 }
 
-    .grid_1_of_4:first-child {
+    /*.grid_1_of_4:first-child {
         margin-left: 0;
-    }
+    }*/
 
 .images_1_of_4 {
     width: 23.9%;
