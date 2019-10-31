@@ -14,7 +14,7 @@ namespace BTL_WEB.Areas.admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-           
+
             return View();
         }
 
@@ -26,7 +26,8 @@ namespace BTL_WEB.Areas.admin.Controllers
             {
                 var dao = new UserDao();
                 var result = dao.Login(model.tentaikhoan, model.matkhau);
-                if (result)
+                var quyen = dao.getIdQuyen(model.tentaikhoan, model.matkhau);
+                if (result == true && quyen == 1)
                 {
                     var user = dao.GetById(model.tentaikhoan);
                     var userSession = new UserLogin();
@@ -36,18 +37,28 @@ namespace BTL_WEB.Areas.admin.Controllers
                     Session.Add(CodeConstants.tentaikhoan_session, userSession);
                     return RedirectToAction("Index", "Home");
                 }
+                else if (result == true && quyen == 3)
+                {
+                    var user = dao.GetById(model.tentaikhoan);
+                    var userSession = new UserLogin();
+                    userSession.tentaikhoan = user.tentaikhoan;
+                    userSession.id = user.id;
+                    Session["username"] = userSession.tentaikhoan;
+                    Session.Add(CodeConstants.tentaikhoan_session, userSession);
+                    return Redirect("~/Home/Index");
+                }
                 else
                 {
                     ModelState.AddModelError("", "Đăng nhập không đúng.");
                 }
             }
             return View("Index");
-        }   
+        }
 
         public ActionResult LogOut()
         {
             Session["username"] = null;
             return RedirectToAction("Index", "Home");
         }
-     }
+    }
 }
