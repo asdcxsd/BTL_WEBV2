@@ -1,10 +1,13 @@
-﻿
+﻿@using BTL_WEB.Models.Entities;
+@using BTL_WEB.Models.Functions;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var iduser = ViewBag.iduser;
 }
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+<script src="~/Content/js/jquery.min.js"></script>
+
 
 <div class="container">
     <table id="cart" class="table table-hover table-condensed">
