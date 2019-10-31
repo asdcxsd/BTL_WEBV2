@@ -26,8 +26,7 @@ namespace BTL_WEB.Areas.admin.Controllers
             {
                 var dao = new UserDao();
                 var result = dao.Login(model.tentaikhoan, model.matkhau);
-                var quyen = dao.getIdQuyen(model.tentaikhoan, model.matkhau);
-                if (result == true && quyen == 1)
+                if (result)
                 {
                     var user = dao.GetById(model.tentaikhoan);
                     var userSession = new UserLogin();
@@ -37,20 +36,10 @@ namespace BTL_WEB.Areas.admin.Controllers
                     Session.Add(CodeConstants.tentaikhoan_session, userSession);
                     return RedirectToAction("Index", "Home");
                 }
-                else if (result == true && quyen == 3)
+                else
                 {
-                    var user = dao.GetById(model.tentaikhoan);
-                    var userSession = new UserLogin();
-                    userSession.tentaikhoan = user.tentaikhoan;
-                    userSession.id = user.id;
-                    Session["username"] = userSession.tentaikhoan;
-                    Session.Add(CodeConstants.tentaikhoan_session, userSession);
-                    return Redirect("~/Home/Index");
-                }   
-                    else
-                    {
-                        ModelState.AddModelError("", "Đăng nhập không đúng.");
-                    }
+                    ModelState.AddModelError("", "Đăng nhập không đúng.");
+                }
             }
             return View("Index");
         }   

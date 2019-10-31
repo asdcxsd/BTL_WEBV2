@@ -175,7 +175,6 @@
     <Compile Include="Areas\admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\admin\Models\LoginModel.cs" />
     <Compile Include="Code\CodeConstants.cs" />
-    <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Models\Entities\MyDBContext.cs" />
     <Compile Include="Models\Entities\tbl_anh.cs" />
     <Compile Include="Models\Entities\tbl_chitietdonhang.cs" />
@@ -189,6 +188,7 @@
     <Compile Include="Models\Entities\tbl_thongtincanhan.cs" />
     <Compile Include="Models\Entities\tbl_tinhtrangdonhang.cs" />
     <Compile Include="Models\Entities\tbl_xulydon.cs" />
+    <Compile Include="Models\Functions\Func_ChiTietDonHang.cs" />
     <Compile Include="Models\Functions\UserDao.cs" />
     <Compile Include="Code\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -240,7 +240,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\flexslider.css" />
     <Content Include="Content\css\login.css" />
-    <Content Include="Content\price-range.css" />
     <Content Include="Content\css\responsiveslides.css" />
     <Content Include="Content\css\signup.css" />
     <Content Include="Content\css\style.css" />
@@ -288,7 +287,6 @@
     <Content Include="Content\js\jquery.livequery.js" />
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Content\js\responsiveslides.min.js" />
-    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -350,7 +348,6 @@
     <Content Include="Views\Shared\_MyPartial.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\UserLogin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

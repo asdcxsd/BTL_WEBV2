@@ -8,7 +8,7 @@ namespace BTL_WEB.Models.Entities
     public partial class MyDBContext : DbContext
     {
         public MyDBContext()
-            : base("name=MyDBContext1")
+            : base("name=MyDBContext")
         {
         }
 
