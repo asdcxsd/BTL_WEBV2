@@ -43,7 +43,7 @@ namespace BTL_WEB.Areas.admin.Controllers
                     var userSession = new UserLogin();
                     userSession.tentaikhoan = user.tentaikhoan;
                     userSession.id = user.id;
-                    Session["username"] = userSession.tentaikhoan;
+                    Session["userLogin"] = userSession.tentaikhoan;
                     Session.Add(CodeConstants.tentaikhoan_session, userSession);
                     return Redirect("~/Home/Index");
                 }

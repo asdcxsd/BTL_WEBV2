@@ -175,8 +175,10 @@
     <Compile Include="Areas\admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\admin\Models\LoginModel.cs" />
     <Compile Include="Code\CodeConstants.cs" />
+
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\UserLoginController.cs" />
+
     <Compile Include="Models\Entities\MyDBContext.cs" />
     <Compile Include="Models\Entities\tbl_anh.cs" />
     <Compile Include="Models\Entities\tbl_chitietdonhang.cs" />
@@ -352,6 +354,7 @@
     <Content Include="Views\Shared\_MyPartial.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+
     <Content Include="Views\UserLogin\Index.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
   </ItemGroup>

@@ -15,11 +15,20 @@ namespace BTL_WEB.Areas.admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
-            var list = new Func_SanPham().DS_SanPham.ToList();
-            ViewBag.SP = list;
-            ViewBag.tittle = "Admin shop mua ban";
-            ViewBag.select = "dashbord";
-            return View();
+            if(Session["username"] == null)
+            {
+                return RedirectToAction("Index","Login");
+            }
+            else
+            {
+                var list = new Func_SanPham().DS_SanPham.ToList();
+                ViewBag.SP = list;
+                ViewBag.tittle = "Admin shop mua ban";
+                ViewBag.select = "dashbord";
+                return View();
+            }
+
+            
         }
 
     }
