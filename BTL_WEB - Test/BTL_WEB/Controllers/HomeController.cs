@@ -149,6 +149,19 @@ namespace BTL_WEB.Controllers
 
             return View("Index",model.ToPagedList(pageNumber, pageSize));
         }
+        [HttpPost]
+        public ActionResult PriceSearch(int? price_max, int? price_min, int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 8;
+
+            var model = new Func_SanPham().DS_SanPham.Where(x => x.gia >= price_min*1000000 && x.gia <= price_max*1000000).ToList();
+
+
+            ViewBag.PriceSearch = model;
+
+            return View("Index", model.ToPagedList(pageNumber, pageSize));
+        }
         public ActionResult ThuongHieu(int? page)
         {
             int pageNumber = (page ?? 1);
