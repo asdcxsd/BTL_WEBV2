@@ -26,9 +26,7 @@ namespace BTL_WEB.Areas.admin.Controllers
                 ViewBag.tittle = "Admin shop mua ban";
                 ViewBag.select = "dashbord";
                 return View();
-            }
-
-            
+            }   
         }
 
     }

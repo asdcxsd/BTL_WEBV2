@@ -98,7 +98,7 @@ namespace BTL_WEB.Models.Functions
             
         }
 
-        List<tbl_chitietdonhang> getSanPhamGioHang(int iduser)
+        public List<tbl_chitietdonhang> getSanPhamGioHang(int iduser)
         {
             List<tbl_chitietdonhang> donhang = context.tbl_chitietdonhang.Where(x => x.id_tk == iduser  && x.id_tinhtrang == 1).ToList();
             return donhang;
