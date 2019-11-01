@@ -190,6 +190,7 @@
     <Compile Include="Models\Entities\tbl_tinhtrangdonhang.cs" />
     <Compile Include="Models\Entities\tbl_xulydon.cs" />
     <Compile Include="Models\Functions\Func_ChiTietDonHang.cs" />
+    <Compile Include="Models\Functions\Func_TaiKhoan.cs" />
     <Compile Include="Models\Functions\UserDao.cs" />
     <Compile Include="Code\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -239,7 +240,6 @@
     <Content Include="Content\assets\scripts\siminta.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\css.css" />
     <Content Include="Content\css\flexslider.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\responsiveslides.css" />
