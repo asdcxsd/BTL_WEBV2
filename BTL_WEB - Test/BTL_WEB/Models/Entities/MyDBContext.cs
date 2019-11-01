@@ -46,9 +46,8 @@ namespace BTL_WEB.Models.Entities
 
             modelBuilder.Entity<tbl_dondathang>()
                 .HasMany(e => e.tbl_chitietdonhang)
-                .WithRequired(e => e.tbl_dondathang)
-                .HasForeignKey(e => e.id_don)
-                .WillCascadeOnDelete(false);
+                .WithOptional(e => e.tbl_dondathang)
+                .HasForeignKey(e => e.id_don);
 
             modelBuilder.Entity<tbl_dondathang>()
                 .HasMany(e => e.tbl_xulydon)

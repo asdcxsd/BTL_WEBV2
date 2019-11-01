@@ -7,6 +7,7 @@
     ViewBag.Title = "Home Page";
     int i = 0;
     Func_SanPham sp = new Func_SanPham();
+    tbl_taikhoan user = ViewBag.user;
 }
 
 
@@ -20,6 +21,7 @@
     -->
 
     <body>
+        <script src="~/Content/js/jsgiohang.js"></script>
         <script>
              // You can also use "$(window).load(function() {"
              $(function () {
@@ -130,7 +132,10 @@
                                         <p><span class="rupees" style="font-size: 0.75cm; color: #FF4000;">Giá: @(it.gia.GetValueOrDefault() > 0 ? it.gia.Value.ToString("N0") + " Đ" : "Liên Hệ")</span></p>
                                     </div>
                                     <div class="add-cart">
-                                        <h4><a href="/Home/Show">Thêm vào giỏ hàng</a></h4>
+                                        @if (user != null){
+                                            <h4><a onclick="addgiohang(@it.id, @user.id)">Thêm vào giỏ hàng</a></h4>
+                                        }
+                                        
                                     </div>
                                     <div class="clear"></div>
                                 </div>

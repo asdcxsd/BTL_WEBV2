@@ -36,7 +36,7 @@ namespace BTL_WEB.Models.Functions
             {
                 return null;
             }
-
+            model.id_don = 1;
             context.tbl_chitietdonhang.Add(model);
             context.SaveChanges();
             return model.id;
@@ -79,7 +79,7 @@ namespace BTL_WEB.Models.Functions
         public  int? AddSanPhamGioHang(int iduser, int idsp, int soluong)
         {
             List<tbl_chitietdonhang>  donhang = context.tbl_chitietdonhang.Where(x => x.id_tk == iduser && x.id_sp == idsp && x.id_tinhtrang == 1).ToList();
-            if (donhang != null)
+            if (donhang.Count > 0 )
             {
                 tbl_chitietdonhang hang = donhang[0];
                 hang.soluong+= soluong;
@@ -96,6 +96,17 @@ namespace BTL_WEB.Models.Functions
                 return Insert(newhang);
             }
             
+        }
+        public int? updatesanpham(int iduser, int idsp, int soluong)
+        {
+            List<tbl_chitietdonhang> donhang = context.tbl_chitietdonhang.Where(x => x.id_tk == iduser && x.id_sp == idsp && x.id_tinhtrang == 1).ToList();
+            if (donhang.Count > 0)
+            {
+                tbl_chitietdonhang hang = donhang[0];
+                hang.soluong = soluong;
+                return Update(hang);
+            }
+            return null;
         }
 
         public List<tbl_chitietdonhang> getSanPhamGioHang(int iduser)
