@@ -511,7 +511,7 @@ INSERT [dbo].[tbl_news] ([id], [tieude], [noidung], [ngaydang], [id_tk], [anh]) 
 
         Samsung Gear Sport đặt các mục tiêu về sức khoẻ, ăn kiêng trên điện thoại của bạn và bắt đầu theo dõi sự tiến triển ngay trên cổ tay: Gear Sport giúp bạn giữ cân bằng và theo dõi lượng calo. Nó cũng cung cấp những lời khuyên và cái nhìn sâu sắc mà bạn có thể sử dụng để hoạch định kế hoạch cho mình.
 
-        Chi tiết chương trình
+        Chi tiết chương trình 
             Bắt đầu từ ngày 31/08/2018 - Đến khi hết sản phẩm khuyến mãi
             Tiết kiệm chi phí lên đến 11%
             Cam kết hàng chính hãng
@@ -526,7 +526,7 @@ INSERT [dbo].[tbl_news] ([id], [tieude], [noidung], [ngaydang], [id_tk], [anh]) 
 INSERT [dbo].[tbl_news] ([id], [tieude], [noidung], [ngaydang], [id_tk], [anh]) VALUES (5, N'iPad Pro 11 inch (2018) 64GB Wifi chỉ còn 19.490.000đ', N'iPad Pro 11 inch (2018) 64GB Wifi được trang bị phần viền mỏng đều ở cả bốn cạnh, loại bỏ phím home vật lý truyền thống và tích hợp thêm công nghệ nhận diện khuôn mặt Face ID. Cấu hình trên iPad Pro được nâng cấp để khiến nó mạnh hơn cả về xử lý ứng dụng lẫn xử lý đồ họa. iPad Pro được trang bị chip A12X Bionic trên công nghệ 7nm, chip này có tổng cộng 10 tỉ bóng bán dẫn với 8 nhân (4 nhân ở hiệu năng cao và 4 nhân bình thường).
 
 Chi tiết chương trình
-
+e
     Bắt đầu từ ngày 18/04/2019 - Đến khi hết sản phẩm khuyến mãi
     Tiết kiệm chi phí lên đến 15%
     Cam kết hàng chính hãng

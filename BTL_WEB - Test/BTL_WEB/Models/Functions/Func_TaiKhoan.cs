@@ -73,7 +73,7 @@ namespace BTL_WEB.Models.Functions
 
             context.tbl_taikhoan.Remove(dbEntry);
             context.SaveChanges();
-            return id;
+            return id; 
         }
 
         public tbl_taikhoan getTaiKhoan(string name)

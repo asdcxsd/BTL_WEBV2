@@ -66,17 +66,38 @@ namespace BTL_WEB.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
+            if (Session["userLogin"] == null)
+            {
+                return Redirect("~/admin/Login/Index");
+            }
+            else
+            {
+                ViewBag.Message = "Your contact page.";
+                return View();
+            } 
         }
         public ActionResult Blog()
         {
-            return View();
+            if(Session["userLogin"] == null)
+            {
+                return Redirect("~/admin/Login/Index");
+            }
+            else
+            {
+                return View();
+            }    
         }
         public ActionResult Store()
         {
-            return View();
+            if (Session["userLogin"] == null)
+            {
+                return Redirect("~/admin/Login/Index");
+            }
+            else
+            {
+                return View();
+            }
         }
         public ActionResult Show()
         {
@@ -157,6 +178,25 @@ namespace BTL_WEB.Controllers
             ViewBag.NSX = listNSX;
 
             return PartialView();
+        }
+
+        public ActionResult LogOutUser()
+        {
+            Session["userLogin"] = null;
+            return RedirectToAction("Index","Home");
+        }
+
+        public ActionResult AccountInfor()
+        {
+            if (Session["userLogin"] == null)
+            {
+                return Redirect("~/admin/Login/Index");
+            }
+            else
+            {
+                return View();
+            }
+
         }
     }
 }

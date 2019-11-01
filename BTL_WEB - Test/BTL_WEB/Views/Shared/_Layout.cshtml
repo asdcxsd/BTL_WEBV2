@@ -110,7 +110,27 @@
             }
             else
             {
-                @Session["userLogin"]
+                @*<div class="popover-content">
+                    <button style="margin-right:50px; background-color:transparent;width:150px;" class="popover-title">
+                        @Session["userLogin"]
+                    </button>
+                </div>*@
+           
+
+
+                <div class="dropdown">
+                    <button style="height:40px;margin-right:50px; background-color:transparent;width:150px;margin-top:6px;" class="dropdown-toggle" data-toggle="dropdown">
+                        @Session["userLogin"]
+                    </button>
+                    <div class="dropdown-menu">
+                        <li><a href="" class="dropdown-item">Thông tin cá nhân</a></li>
+                        <li><a href="" class="dropdown-item">Theo dõi đơn hàng</a></li>
+                        <li><a href="/Home/LogOutUser" class="dropdown-item">Đăng xuất</a></li>
+                    </div>
+                </div>
+
+
+                    
             }
 
 
