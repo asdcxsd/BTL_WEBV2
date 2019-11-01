@@ -8,10 +8,9 @@ namespace BTL_WEB.Models.Entities
 
     public partial class tbl_chitietdonhang
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
-        public int id_don { get; set; }
+        public int? id_don { get; set; }
 
         public int id_sp { get; set; }
 

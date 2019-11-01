@@ -47,7 +47,13 @@ namespace BTL_WEB.Controllers
         }
         public ActionResult Index(int? page)
         {
-            var list = new Func_SanPham().DS_SanPham.ToList();
+            if (Session["userLogin"] != null)
+            {
+                Func_TaiKhoan tinhuser = new Func_TaiKhoan();
+                ViewBag.user = tinhuser.getTaiKhoan((string)Session["userLogin"]);
+            }
+            else ViewBag.user = null;
+                var list = new Func_SanPham().DS_SanPham.ToList();
             int pageNumber = (page ?? 1);
             int pageSize = 8;
 

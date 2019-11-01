@@ -64,12 +64,12 @@ GO
 SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[tbl_chitietdonhang](
-	[id] [varchar](20) NOT NULL,
-	[id_don] [varchar](12) NOT NULL,
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id_don] [int] NULL,
 	[id_sp] [int] NOT NULL,
 	[id_tk] [int] NOT NULL,
 	[soluong] [int] NULL,
-	[id_tinhtrang] [nvarchar](20) NULL,
+	[id_tinhtrang] [int] NULL,
 	[thoigian] [datetime] NULL,
  CONSTRAINT [PK_tbl_chitietdonhang] PRIMARY KEY CLUSTERED 
 (
@@ -103,7 +103,7 @@ GO
 SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[tbl_dondathang](
-	[id] [varchar](12) NOT NULL,
+	[id] [int] NOT NULL,
 	[ngaylap] [date] NULL,
 	[tonggia] [decimal](18, 0) NULL,
 	[diachi] [nvarchar](50) NULL,
@@ -259,7 +259,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[tbl_tinhtrangdonhang](
-	[id] [nvarchar](20) NOT NULL,
+	[id] [int] NOT NULL,
 	[ten] [nvarchar](20) NULL,
  CONSTRAINT [PK_tbl_tinhtrangdonhang] PRIMARY KEY CLUSTERED 
 (
@@ -276,8 +276,8 @@ GO
 SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[tbl_xulydon](
-	[id] [nvarchar](20) NOT NULL,
-	[id_don] [varchar](12) NOT NULL,
+	[id] [int] NOT NULL,
+	[id_don] [int] NOT NULL,
 	[tinhtrang] [nvarchar](30) NULL,
 	[thoigian] [datetime] NULL,
  CONSTRAINT [PK_tbl_xulydon] PRIMARY KEY CLUSTERED 
@@ -446,9 +446,13 @@ INSERT [dbo].[tbl_anh] ([id], [duongdan], [id_sp]) VALUES (149, N'anh151.jpg', 3
 INSERT [dbo].[tbl_anh] ([id], [duongdan], [id_sp]) VALUES (150, N'anh152.jpg', 39)
 INSERT [dbo].[tbl_anh] ([id], [duongdan], [id_sp]) VALUES (151, N'anh153.jpg', 39)
 SET IDENTITY_INSERT [dbo].[tbl_anh] OFF
+
+SET IDENTITY_INSERT [dbo].[tbl_chitietdonhang] ON 
 INSERT [dbo].[tbl_chitietdonhang] ([id], [id_don], [id_sp], [id_tk], [soluong], [id_tinhtrang], [thoigian]) VALUES (N'1', N'1', 1, 2, 10, N'1', CAST(N'2019-06-19 00:00:00.000' AS DateTime))
 INSERT [dbo].[tbl_chitietdonhang] ([id], [id_don], [id_sp], [id_tk], [soluong], [id_tinhtrang], [thoigian]) VALUES (N'2', N'2', 2, 2, 100, N'1', CAST(N'2019-06-19 00:00:00.000' AS DateTime))
 INSERT [dbo].[tbl_chitietdonhang] ([id], [id_don], [id_sp], [id_tk], [soluong], [id_tinhtrang], [thoigian]) VALUES (N'3', N'3', 3, 3, 10, N'2', CAST(N'2019-06-19 00:00:00.000' AS DateTime))
+SET IDENTITY_INSERT [dbo].[tbl_chitietdonhang] OFF
+ 
 SET IDENTITY_INSERT [dbo].[tbl_danhmuc] ON 
 
 INSERT [dbo].[tbl_danhmuc] ([id], [ten]) VALUES (1, N'Điện Thoại')
