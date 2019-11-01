@@ -1,7 +1,6 @@
 ﻿
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.tittle = "AccountInfor";
+    
 }
 
 <!DOCTYPE html>
@@ -11,13 +10,56 @@
     <meta name="viewport" content="width=device-width" />
     <title>Information</title>
 </head>
-<body>
+
+<body
     <div>
-        Bui thanh hoang
-    </div>
+        <div class="wrap">
+            <div class="wrap">
+                <div class="wrap">
+                    <div style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size:50px;color:red" class="modal-header">
+                        Thông tin cá nhân
+                    </div>
+                </div>
+
+                <div class="wrap">
+                    <div class="wrap">
+                        <div class="wrap">
+                  
+                            <div class="form-inline">
+                                <label for="pwd">Địa chỉ Email:</label>
+                                <input style="margin-left:48px;" type="email" class="form-control" placeholder="Email">
+                            </div>
+                   
+                            <div class="form-inline">
+                                <label for="pwd">Số điện thoại:</label>
+                                <input style="margin-left:53px;" type="text" class="form-control" placeholder="Số điện thoại">
+                            </div>
+                  
+                            <div class="form-inline">
+                                <label for="pwd">Họ và tên:</label>
+                                <input style="margin-left:75px;" type="text" class="form-control" placeholder="Họ và tên">
+                            </div>
+                
+                            <div class="form-inline">
+                                <label for="pwd">Ngày sinh:</label>
+                                <input style="margin-left:72px;" type="text" class="form-control" placeholder="Ngày sinh">
+                            </div>
+                            <div class="clear"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
-    @Html.Partial("_MyPartial")
-    </div>
+      <div>
+          @Html.Partial("_MyPartial")
+      </div>
+    <div class="clear"></div>
+
+
+
 </body>
 </html>

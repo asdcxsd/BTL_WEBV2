@@ -192,7 +192,7 @@ namespace BTL_WEB.Controllers
             return RedirectToAction("Index","Home");
         }
 
-        public ActionResult AccountInfor()
+        public ActionResult Information()
         {
             if (Session["userLogin"] == null)
             {

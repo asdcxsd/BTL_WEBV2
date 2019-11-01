@@ -44,6 +44,7 @@ namespace BTL_WEB.Areas.admin.Controllers
                     userSession.tentaikhoan = user.tentaikhoan;
                     userSession.id = user.id;
                     Session["userLogin"] = userSession.tentaikhoan;
+                    Session["id"] = userSession.id;
                     Session.Add(CodeConstants.tentaikhoan_session, userSession);
                     return Redirect("~/Home/Index");
                 }
