@@ -30,7 +30,7 @@
     <br />
     <div class="price-range">
         <!--price-range-->
-        <h2>Price Range</h2>
+        <h2>Price Range</h2> <br />
         @*<div class="well text-center">
             <div class="slider slider-horizontal" style="width: 187px;">
                 <div class="slider-track">
@@ -46,16 +46,20 @@
             </div><br>
             <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
         </div>*@
-        <div id="rangeBox">
-            <div id="sliderBox">
-                <input type="range" id="slider0to50" step="5" min="0" max="50">
-                <input type="range" id="slider51to100" step="5" min="50" max="100">
+        <form method="post" action="/Home/PriceSearch" class="navbar-form navbar-left">
+            <div id="rangeBox">
+                <div id="sliderBox">
+                    <input type="range" id="slider0to50" step="5" min="0" max="10">
+                    <input type="range" id="slider51to100" step="5" min="11" max="100">
+                </div>
+                <div id="inputRange">
+                    <input type="number" step="1" min="0" max="10" placeholder="Min" id="price_min" name="price_min">
+                    <input type="number" step="1" min="11" max="100" placeholder="Max" id="price_max" name="price_max">
+                </div>
             </div>
-            <div id="inputRange">
-                <input type="number" step="5" min="0" max="50" placeholder="Min" id="price_min">
-                <input type="number" step="5" min="51" max="100" placeholder="Max" id="price_max">
-            </div>
-        </div>
+            <button type="submit" class="btn btn-default">OK</button>
+        </form>
+        
     </div><!--/price-range-->
     
 </div>
