@@ -141,8 +141,9 @@ namespace BTL_WEB.Models.Entities
 
             modelBuilder.Entity<tbl_thongtincanhan>()
                 .HasMany(e => e.tbl_taikhoan)
-                .WithOptional(e => e.tbl_thongtincanhan)
-                .HasForeignKey(e => e.id_ttcn);
+                .WithRequired(e => e.tbl_thongtincanhan)
+                .HasForeignKey(e => e.id_ttcn)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tbl_tinhtrangdonhang>()
                 .HasMany(e => e.tbl_chitietdonhang)

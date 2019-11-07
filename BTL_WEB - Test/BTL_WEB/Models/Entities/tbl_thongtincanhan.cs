@@ -16,22 +16,27 @@ namespace BTL_WEB.Models.Entities
 
         public int id { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string ten { get; set; }
 
-        public decimal? sdt { get; set; }
+        public decimal sdt { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string email { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? ngaysinh { get; set; }
+        public DateTime ngaysinh { get; set; }
 
-        public bool? gioitinh { get; set; }
+        [Required]
+        [StringLength(3)]
+        public string gioitinh { get; set; }
 
         [StringLength(255)]
         public string anhdaidien { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string diachi { get; set; }
 
