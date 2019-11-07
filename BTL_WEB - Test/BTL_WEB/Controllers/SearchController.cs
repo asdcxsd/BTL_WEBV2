@@ -31,7 +31,7 @@ namespace BTL_WEB.Controllers
             var model = new Func_SanPham().DS_SanPham.Where(x => x.id_dm == id).ToList();
             ViewBag.DanhMuc = model;
 
-            return View("DanhMuc", model.ToPagedList(pageNumber, pageSize));
+            return View(model.ToPagedList(pageNumber, pageSize));
         }
         [HttpGet]
         public ActionResult ThuongHieu(int? id, int? page)
@@ -45,29 +45,34 @@ namespace BTL_WEB.Controllers
             var model = new Func_SanPham().DS_SanPham.Where(x => x.id_nsx == id).ToList();
             ViewBag.ThuongHieu = model;
 
-            return View("ThuongHieu", model.ToPagedList(pageNumber, pageSize));
+            return View(model.ToPagedList(pageNumber, pageSize));
         }
         [HttpPost]
         public ActionResult PriceSearch(int? price_max, int? price_min, int? page)
         {
+            ViewBag.price_max = price_max;
+            ViewBag.price_min = price_min;
+
             int pageNumber = (page ?? 1);
             int pageSize = 8;
 
             var model = new Func_SanPham().DS_SanPham.Where(x => x.gia >= price_min * 1000000 && x.gia <= price_max * 1000000).ToList();
             ViewBag.PriceSearch = model;
 
-            return View("PriceSearch", model.ToPagedList(pageNumber, pageSize));
+            return View(model.ToPagedList(pageNumber, pageSize));
         }
         [HttpPost]
         public ActionResult NameSearch(string txtString, int? page)
         {
+            ViewBag.name = txtString;
+
             int pageNumber = (page ?? 1);
             int pageSize = 8;
 
             var model = new Func_SanPham().DS_SanPham.Where(x => x.ten.Contains(txtString)).ToList();
-            ViewBag.Search = model;
+            ViewBag.NameSearch = model;
 
-            return View("NameSearch", model.ToPagedList(pageNumber, pageSize));
+            return View(model.ToPagedList(pageNumber, pageSize));
         }
     }
 }
