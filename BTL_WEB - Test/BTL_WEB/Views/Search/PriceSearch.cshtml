@@ -137,7 +137,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             @Html.Partial("_MyPartial")
         </div>
         <div class="clear"> </div>
-        @Html.PagedListPager(Model, page => Url.Action("PriceSearch", new { page }))
+        @Html.PagedListPager(Model, page => Url.Action("PriceSearch", new { price_min, price_max, page }))
     </div>
 
 </body>

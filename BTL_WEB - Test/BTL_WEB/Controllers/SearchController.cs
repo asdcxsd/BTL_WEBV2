@@ -59,7 +59,7 @@ namespace BTL_WEB.Controllers
 
             return View(model.ToPagedList(pageNumber, pageSize));
         }
-        [HttpPost]
+        [HttpGet]
         public ActionResult PriceSearch(int? price_max, int? price_min, int? page)
         {
             if (Session["userLogin"] != null)
@@ -79,7 +79,7 @@ namespace BTL_WEB.Controllers
 
             return View(model.ToPagedList(pageNumber, pageSize));
         }
-        [HttpPost]
+        [HttpGet]
         public ActionResult NameSearch(string txtString, int? page)
         {
             if (Session["userLogin"] != null)
