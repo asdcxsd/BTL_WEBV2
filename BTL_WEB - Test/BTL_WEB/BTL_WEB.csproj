@@ -177,6 +177,7 @@
     <Compile Include="Code\CodeConstants.cs" />
     <Compile Include="Controllers\api\ApiGioHangController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Models\Entities\MyDBContext.cs" />
     <Compile Include="Models\Entities\tbl_anh.cs" />
     <Compile Include="Models\Entities\tbl_chitietdonhang.cs" />
@@ -356,6 +357,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
     <Content Include="Views\Home\Information.cshtml" />
+    <Content Include="Views\Search\ThuongHieu.cshtml" />
+    <Content Include="Views\Search\DanhMuc.cshtml" />
+    <Content Include="Views\Search\PriceSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
