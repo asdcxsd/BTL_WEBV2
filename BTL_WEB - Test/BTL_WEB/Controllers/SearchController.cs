@@ -22,6 +22,12 @@ namespace BTL_WEB.Controllers
         [HttpGet]
         public ActionResult DanhMuc(int? id, int? page)
         {
+            if (Session["userLogin"] != null)
+            {
+                Func_TaiKhoan tinhuser = new Func_TaiKhoan();
+                ViewBag.user = tinhuser.getTaiKhoan((string)Session["userLogin"]);
+            }
+            else ViewBag.user = null;
             id = Convert.ToInt32(Request.QueryString["danhmuc"]);
             ViewBag.id_dm = id;
 
@@ -36,6 +42,12 @@ namespace BTL_WEB.Controllers
         [HttpGet]
         public ActionResult ThuongHieu(int? id, int? page)
         {
+            if (Session["userLogin"] != null)
+            {
+                Func_TaiKhoan tinhuser = new Func_TaiKhoan();
+                ViewBag.user = tinhuser.getTaiKhoan((string)Session["userLogin"]);
+            }
+            else ViewBag.user = null;
             id = Convert.ToInt32(Request.QueryString["thuonghieu"]);
             ViewBag.id_nsx = id;
 
@@ -50,6 +62,12 @@ namespace BTL_WEB.Controllers
         [HttpPost]
         public ActionResult PriceSearch(int? price_max, int? price_min, int? page)
         {
+            if (Session["userLogin"] != null)
+            {
+                Func_TaiKhoan tinhuser = new Func_TaiKhoan();
+                ViewBag.user = tinhuser.getTaiKhoan((string)Session["userLogin"]);
+            }
+            else ViewBag.user = null;
             ViewBag.price_max = price_max;
             ViewBag.price_min = price_min;
 
@@ -64,6 +82,12 @@ namespace BTL_WEB.Controllers
         [HttpPost]
         public ActionResult NameSearch(string txtString, int? page)
         {
+            if (Session["userLogin"] != null)
+            {
+                Func_TaiKhoan tinhuser = new Func_TaiKhoan();
+                ViewBag.user = tinhuser.getTaiKhoan((string)Session["userLogin"]);
+            }
+            else ViewBag.user = null;
             ViewBag.name = txtString;
 
             int pageNumber = (page ?? 1);
