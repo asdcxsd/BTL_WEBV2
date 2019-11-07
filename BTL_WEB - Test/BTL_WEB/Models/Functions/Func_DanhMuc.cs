@@ -36,12 +36,11 @@ namespace BTL_WEB.Models.Functions
             {
                 return null;
             }
-
             context.tbl_danhmuc.Add(model);
             context.SaveChanges();
+
             return model.id;
         }
-
         // Sửa dữ liệu
         public int? Update(tbl_danhmuc model)
         {
@@ -52,9 +51,7 @@ namespace BTL_WEB.Models.Functions
             }
 
             dbEntry.ten = model.ten;
-
             context.SaveChanges();
-
             return model.id;
         }
 

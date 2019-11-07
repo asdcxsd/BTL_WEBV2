@@ -14,7 +14,6 @@ namespace BTL_WEB.Areas.admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-
             return View();
         }
 
@@ -23,7 +22,7 @@ namespace BTL_WEB.Areas.admin.Controllers
         public ActionResult Index(LoginModel model)
         {
             if (ModelState.IsValid)
-            {
+            { 
                 var dao = new UserDao();
                 var result = dao.Login(model.tentaikhoan, model.matkhau);
                 var quyen = dao.getIdQuyen(model.tentaikhoan, model.matkhau);
@@ -43,8 +42,9 @@ namespace BTL_WEB.Areas.admin.Controllers
                     var userSession = new UserLogin();
                     userSession.tentaikhoan = user.tentaikhoan;
                     userSession.id = user.id;
+                    userSession.id_ttcn = user.id_ttcn;
                     Session["userLogin"] = userSession.tentaikhoan;
-                    Session["id"] = userSession.id;
+                    Session["IDTinhTrang"] = userSession.id_ttcn;
                     Session.Add(CodeConstants.tentaikhoan_session, userSession);
                     return Redirect("~/Home/Index");
                 }

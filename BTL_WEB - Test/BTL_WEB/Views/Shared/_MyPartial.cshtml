@@ -5,7 +5,9 @@
 @{
     ViewBag.Title = "Home Page";
     Func_DanhMuc dm = new Func_DanhMuc();
+
     List<tbl_danhmuc> listDM = new Func_DanhMuc().DS_DanhMuc.ToList();
+    //List<tbl_danhmuc> listDM = ViewBag.listDM;
     int n = new Func_DanhMuc().DS_DanhMuc.Count();
 
     List<tbl_nhasanxuat> listNSX = new Func_nhasanxuat().DS_NhaSanXuat.ToList();

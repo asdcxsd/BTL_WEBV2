@@ -255,6 +255,8 @@
     <Content Include="Content\images\2.png" />
     <Content Include="Content\images\admin.png" />
     <Content Include="Content\images\admin1.png" />
+    <Content Include="Content\images\anhNam.png" />
+    <Content Include="Content\images\anhNu.png" />
     <Content Include="Content\images\arrow.png" />
     <Content Include="Content\images\arrow1.png" />
     <Content Include="Content\images\btn-cart.png" />
@@ -266,6 +268,7 @@
     <Content Include="Content\images\grid-img1.jpg" />
     <Content Include="Content\images\grid-img2.jpg" />
     <Content Include="Content\images\grid-img3.jpg" />
+    <Content Include="Content\images\icons8_edit.ico" />
     <Content Include="Content\images\icons8_search.ico" />
     <Content Include="Content\images\icons8_search_16.png" />
     <Content Include="Content\images\icons8_search_32.png" />
