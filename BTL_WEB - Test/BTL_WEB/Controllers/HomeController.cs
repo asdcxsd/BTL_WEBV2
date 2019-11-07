@@ -226,7 +226,7 @@ namespace BTL_WEB.Controllers
         }
 
         [HttpPost]
-        public ActionResult SuaThongTin(string email,string sdt,string ten,string ngaysinh,string diachi,string gioitinh)
+        public ActionResult SuaThongTin(string email,string sdt,string ten,string ngaysinh,string diachi/*,string gioitinh*/)
         {
 
             var model = new tbl_thongtincanhan();
@@ -235,7 +235,7 @@ namespace BTL_WEB.Controllers
             model.ten = ten;
             model.ngaysinh = Convert.ToDateTime(ngaysinh);
             model.diachi = diachi;
-            model.gioitinh = gioitinh;
+            //model.gioitinh = gioitinh;
             model.id = (int)Session["IDTinhTrang"];
 
                 var func_tk = new Func_TaiKhoan();
