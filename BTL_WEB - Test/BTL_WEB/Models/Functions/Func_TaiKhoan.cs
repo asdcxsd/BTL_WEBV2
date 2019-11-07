@@ -102,6 +102,7 @@ namespace BTL_WEB.Models.Functions
             dbEntry.ten = model.ten;
             dbEntry.ngaysinh = model.ngaysinh;
             dbEntry.diachi = model.diachi;
+            //dbEntry.gioitinh = model.gioitinh;
             context.SaveChanges();
             return model.id;
         }
