@@ -8,7 +8,6 @@
     int i = 0;
     Func_SanPham sp = new Func_SanPham();
     tbl_taikhoan user = ViewBag.user;
-    var thuonghieu = ViewBag.id_nsx;
 }
 
 
@@ -135,7 +134,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             @Html.Partial("_MyPartial")
         </div>
         <div class="clear"> </div>
-        @Html.PagedListPager(Model, page => Url.Action("ThuongHieu", new { thuonghieu, page }))
+        @Html.PagedListPager(Model, page => Url.Action("NameSearch", new { page }))
     </div>
 
 </body>
