@@ -84,6 +84,27 @@ namespace BTL_WEB.Models.Functions
             else return null;
         }
 
+        public tbl_thongtincanhan getThongTin(int IDTinhTrang)
+        {
+            return context.tbl_thongtincanhan.SingleOrDefault(x => x.id == IDTinhTrang);       
+        }
 
+        public int? UpdateThongTinCaNhan(tbl_thongtincanhan model)
+        {
+            tbl_thongtincanhan dbEntry = context.tbl_thongtincanhan.Find(model.id);
+            if(dbEntry == null)
+            {
+                return null;
+            }
+
+            dbEntry.email = model.email;
+            dbEntry.sdt = model.sdt;
+            dbEntry.ten = model.ten;
+            dbEntry.ngaysinh = model.ngaysinh;
+            dbEntry.diachi = model.diachi;
+            //dbEntry.gioitinh = model.gioitinh;
+            context.SaveChanges();
+            return model.id;
+        }
     }
 }

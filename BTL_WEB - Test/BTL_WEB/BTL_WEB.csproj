@@ -177,6 +177,7 @@
     <Compile Include="Code\CodeConstants.cs" />
     <Compile Include="Controllers\api\ApiGioHangController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Models\Entities\MyDBContext.cs" />
     <Compile Include="Models\Entities\tbl_anh.cs" />
     <Compile Include="Models\Entities\tbl_chitietdonhang.cs" />
@@ -254,6 +255,8 @@
     <Content Include="Content\images\2.png" />
     <Content Include="Content\images\admin.png" />
     <Content Include="Content\images\admin1.png" />
+    <Content Include="Content\images\anhNam.png" />
+    <Content Include="Content\images\anhNu.png" />
     <Content Include="Content\images\arrow.png" />
     <Content Include="Content\images\arrow1.png" />
     <Content Include="Content\images\btn-cart.png" />
@@ -265,6 +268,7 @@
     <Content Include="Content\images\grid-img1.jpg" />
     <Content Include="Content\images\grid-img2.jpg" />
     <Content Include="Content\images\grid-img3.jpg" />
+    <Content Include="Content\images\icons8_edit.ico" />
     <Content Include="Content\images\icons8_search.ico" />
     <Content Include="Content\images\icons8_search_16.png" />
     <Content Include="Content\images\icons8_search_32.png" />
@@ -352,10 +356,13 @@
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Home\Show.cshtml" />
     <Content Include="Views\Shared\_MyPartial.cshtml" />
-    <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
     <Content Include="Views\Home\Information.cshtml" />
+    <Content Include="Views\Search\ThuongHieu.cshtml" />
+    <Content Include="Views\Search\DanhMuc.cshtml" />
+    <Content Include="Views\Search\PriceSearch.cshtml" />
+    <Content Include="Views\Search\NameSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

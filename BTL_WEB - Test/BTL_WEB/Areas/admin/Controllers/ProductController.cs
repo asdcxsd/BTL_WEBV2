@@ -89,19 +89,14 @@ namespace BTL_WEB.Areas.admin.Controllers
                                 res = -1;
                             }
                             else fileUpload.SaveAs(path);
-                        }
-                        
-
-                        
+                        }                       
                     }
                 }
             }
             catch
             {
                 res = -1;
-            }
-
-            
+            }           
             if (res != null) ViewBag.add = res;
             else ViewBag.add = -1;
             return RedirectToAction("Add", new {

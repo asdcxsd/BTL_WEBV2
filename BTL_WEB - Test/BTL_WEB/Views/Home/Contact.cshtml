@@ -1,5 +1,8 @@
-﻿@{
+﻿@using BTL_WEB.Models.Entities
+@using BTL_WEB.Models.Functions
+@{
     ViewBag.Title = "Contact";
+    var ttcn = ViewBag.user;
 }
 
 <!--
@@ -9,7 +12,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <body>
-    
+
     <div class="clear"> </div>
     <div class="wrap">
         <div class="content">
@@ -38,15 +41,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <form>
                             <div>
                                 <span><label>NAME</label></span>
-                                <span><input type="text" value=""></span>
+                                <span><input type="text" value="@ttcn.ten"></span>
                             </div>
                             <div>
                                 <span><label>E-MAIL</label></span>
-                                <span><input type="text" value=""></span>
+                                <span><input type="text" value="@ttcn.email"></span>
                             </div>
                             <div>
                                 <span><label>MOBILE.NO</label></span>
-                                <span><input type="text" value=""></span>
+                                <span><input type="text" value="@ttcn.sdt"></span>
                             </div>
                             <div>
                                 <span><label>SUBJECT</label></span>

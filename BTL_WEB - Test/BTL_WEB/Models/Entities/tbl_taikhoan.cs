@@ -25,7 +25,7 @@ namespace BTL_WEB.Models.Entities
         [StringLength(30)]
         public string matkhau { get; set; }
 
-        public int? id_ttcn { get; set; }
+        public int id_ttcn { get; set; }
 
         public bool? trangthai { get; set; }
 

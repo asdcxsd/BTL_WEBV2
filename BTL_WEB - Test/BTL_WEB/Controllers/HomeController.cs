@@ -79,6 +79,9 @@ namespace BTL_WEB.Controllers
             }
             else
             {
+                var xuly = new Func_TaiKhoan();
+                int idTinhTrang = (int)Session["IDTinhTrang"];
+                ViewBag.user = xuly.getThongTin(idTinhTrang);
                 ViewBag.Message = "Your contact page.";
                 return View();
             } 
@@ -213,9 +216,40 @@ namespace BTL_WEB.Controllers
             }
             else
             {
+                var xuly = new Func_TaiKhoan();
+                int idTinhTrang = (int)Session["IDTinhTrang"];
+                ViewBag.user = xuly.getThongTin(idTinhTrang);
+                  
                 return View();
             }
 
+        }
+
+        [HttpPost]
+        public ActionResult SuaThongTin(string email,string sdt,string ten,string ngaysinh,string diachi/*,string gioitinh*/)
+        {
+
+            var model = new tbl_thongtincanhan();
+            model.email = email;
+            model.sdt = Convert.ToDecimal(sdt);
+            model.ten = ten;
+            model.ngaysinh = Convert.ToDateTime(ngaysinh);
+            model.diachi = diachi;
+            //model.gioitinh = gioitinh;
+            model.id = (int)Session["IDTinhTrang"];
+
+                var func_tk = new Func_TaiKhoan();
+                var result = func_tk.UpdateThongTinCaNhan(model);
+            if (result == null)
+            {
+               ModelState.AddModelError("", "Cập nhật thất bại.");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Cập nhật thành công.");
+            }
+
+            return Redirect("~/Home/Information");
         }
     }
 }
