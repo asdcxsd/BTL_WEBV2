@@ -140,53 +140,7 @@ namespace BTL_WEB.Controllers
             }
             return View();
         }
-        [HttpPost]
-        public ActionResult Search(string txtString, int? page)
-        {
-            int pageNumber = (page ?? 1);
-            int pageSize = 8;
-            var model = new Func_SanPham().DS_SanPham.Where(x => x.ten.Contains(txtString)).ToList();
-
-           
-            ViewBag.Search = model;
-
-            return View("Index",model.ToPagedList(pageNumber, pageSize));
-        }
-        [HttpPost]
-        public ActionResult PriceSearch(int? price_max, int? price_min, int? page)
-        {
-            int pageNumber = (page ?? 1);
-            int pageSize = 8;
-
-            var model = new Func_SanPham().DS_SanPham.Where(x => x.gia >= price_min*1000000 && x.gia <= price_max*1000000).ToList();
-
-
-            ViewBag.PriceSearch = model;
-
-            return View("Index", model.ToPagedList(pageNumber, pageSize));
-        }
-        public ActionResult ThuongHieu(int? page)
-        {
-            int pageNumber = (page ?? 1);
-            int pageSize = 8;
-            string txtString = Request.QueryString["thuonghieu"];
-            var model = new Func_SanPham().DS_SanPham.Where(x => x.id_nsx.ToString().Contains(txtString)).ToList();
-
-            ViewBag.ThuongHieu = model;
-
-            return View("Index", model.ToPagedList(pageNumber, pageSize));
-        }
-        public ActionResult DanhMuc(int? page)
-        {
-            int pageNumber = (page ?? 1);
-            int pageSize = 8;
-            string txtString = Request.QueryString["danhmuc"];
-            var model = new Func_SanPham().DS_SanPham.Where(x => x.id_dm.ToString().Contains(txtString)).ToList();
-
-            ViewBag.DanhMuc = model;
-
-            return View("Index", model.ToPagedList(pageNumber, pageSize));
-        }
+        
         public ActionResult Error()
         {
             return View();
