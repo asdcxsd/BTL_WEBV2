@@ -21,7 +21,7 @@ namespace BTL_WEB.Models.Functions
         // Trả về danh mục
         public IQueryable<tbl_sanpham> DS_SanPham
         {
-            get { return context.tbl_sanpham; }
+            get { return context.tbl_sanpham.Where(x => x.tinhtrang == 1); }
         }
 
         // Trả về 1 đối tượng khi biết khóa
